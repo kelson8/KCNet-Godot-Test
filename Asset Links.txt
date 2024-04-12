@@ -1,0 +1,6 @@
+All of the free assets that I use for this project will be listed here.
+Move to a Readme once I setup a git repo for this, possibly name it KelsonCraft-GameDemo or something
+
+Modern Tiles: https://limezu.itch.io/moderninteriors
+Kenny Particle Pack: https://godotengine.org/asset-library/asset/783
+
