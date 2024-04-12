@@ -21,7 +21,6 @@ const UP = Vector2(0,-1)
 var motion = Vector2()
 
 func _physics_process(delta):
-	# I tried to use what they were using in the Mega Bot project and the player doesn't move with this.
 	set_velocity(motion)
 	set_up_direction(UP)
 	get_input()
@@ -123,10 +122,3 @@ func faster_enemies():
 # Makes the enemies about 50% slower.
 func slower_enemies():
 	pass
- 
-
-# Coin functions.
-func _on_coin_tree_entered():
-	print("Coin picked up!")
-	#pass # Replace with function body.
-

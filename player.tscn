@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ov0kiqqyp5kd"]
+[gd_scene load_steps=6 format=3 uid="uid://ov0kiqqyp5kd"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_fismj"]
-[ext_resource type="Texture2D" uid="uid://gxsm6iqshcdx" path="res://assets/robot/char.png" id="2_fkqw3"]
+[ext_resource type="Texture2D" uid="uid://b18j7s5cyydgm" path="res://assets/knight-character/Spritesheet 128/Knight_1/Idle.png" id="2_6pegd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_73s5f"]
 radius = 12.0
+
+[sub_resource type="Animation" id="Animation_2bo0p"]
+resource_name = "walk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wvlby"]
+_data = {
+"walk": SubResource("Animation_2bo0p")
+}
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-53, -81)
@@ -13,10 +21,18 @@ script = ExtResource("1_fismj")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(53, 81)
 scale = Vector2(0.46875, 0.382813)
-texture = ExtResource("2_fkqw3")
+texture = ExtResource("2_6pegd")
+region_enabled = true
+region_rect = Rect2(11.034, 61.9087, 45.8025, 66.0913)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(53, 82)
 shape = SubResource("CircleShape2D_73s5f")
 metadata/_edit_group_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wvlby")
+}
+autoplay = "walk"
