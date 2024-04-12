@@ -4,3 +4,12 @@ Move to a Readme once I setup a git repo for this, possibly name it KelsonCraft-
 Modern Tiles: https://limezu.itch.io/moderninteriors
 Kenny Particle Pack: https://godotengine.org/asset-library/asset/783
 
+Coin (Animated): https://jordon-games.itch.io/animated-gold-coin
+
+Knight Character: https://free-game-assets.itch.io/free-fantasy-knight
+Modern tiles: https://limezu.itch.io/moderninteriors
+Pixel Adventure: https://pixelfrog-assets.itch.io/pixel-adventure-1
+Platformer Art Complete: https://opengameart.org/content/platformer-art-deluxe
+Raou Top down adventure: https://raou.itch.io/small-adventure
+Robot: https://docs.godotengine.org/en/latest/tutorials/physics/kinematic_character_2d.html
+Sky Background: https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set
