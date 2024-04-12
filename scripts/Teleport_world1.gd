@@ -1,6 +1,7 @@
 extends Area2D
 
-# Change scenes tutorial: https://www.youtube.com/watch?v=FuIn_1aK7rM
+# RPG game type world.
+# Testing making a basic RPG game on this.
 
 var entered = false
 
@@ -13,5 +14,5 @@ func _on_body_exited(body: PhysicsBody2D):
 func _physics_process(delta):
 	if entered == true:
 		if Input.is_action_just_pressed("ui_accept"):
-			get_tree().change_scene_to_file("res://world.tscn")
-			
+			get_tree().change_scene_to_file("res://scenes/world_1.tscn")
+

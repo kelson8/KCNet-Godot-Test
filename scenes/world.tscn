@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://7fgowa277tgg"]
 
-[ext_resource type="PackedScene" uid="uid://ov0kiqqyp5kd" path="res://player.tscn" id="1_a437d"]
-[ext_resource type="Texture2D" uid="uid://da13a2dk7vxde" path="res://assets/sky-background/Clouds/Clouds 1/4.png" id="1_stirb"]
-[ext_resource type="PackedScene" uid="uid://b2saato7mhxka" path="res://test_tile_map.tscn" id="1_w7ydp"]
-[ext_resource type="Script" path="res://Teleport1.gd" id="4_j1q3v"]
+[ext_resource type="Texture2D" uid="uid://da13a2dk7vxde" path="res://assets/sky-background/Clouds/Clouds 1/4.png" id="1_6ifwg"]
+[ext_resource type="PackedScene" uid="uid://b2saato7mhxka" path="res://scenes/test_tile_map.tscn" id="2_m6bv6"]
+[ext_resource type="PackedScene" uid="uid://ov0kiqqyp5kd" path="res://scenes/player.tscn" id="3_vxpk4"]
+[ext_resource type="Script" path="res://scripts/Teleport_world1.gd" id="4_av74h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_crnwf"]
 radius = 21.587
@@ -15,15 +15,15 @@ offset_left = 3.0
 offset_top = -2.0
 offset_right = 1148.0
 offset_bottom = 646.0
-texture = ExtResource("1_stirb")
+texture = ExtResource("1_6ifwg")
 
-[node name="TestTileMap" parent="." instance=ExtResource("1_w7ydp")]
+[node name="TestTileMap" parent="." instance=ExtResource("2_m6bv6")]
 
-[node name="Player" parent="." instance=ExtResource("1_a437d")]
+[node name="Player" parent="." instance=ExtResource("3_vxpk4")]
 position = Vector2(-15, 515)
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("4_j1q3v")
+script = ExtResource("4_av74h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(327, 467)

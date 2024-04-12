@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ov0kiqqyp5kd"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_fismj"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_tdjgv"]
 [ext_resource type="Texture2D" uid="uid://b18j7s5cyydgm" path="res://assets/knight-character/Spritesheet 128/Knight_1/Idle.png" id="2_6pegd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_73s5f"]
@@ -16,7 +16,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-53, -81)
-script = ExtResource("1_fismj")
+script = ExtResource("1_tdjgv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(53, 81)

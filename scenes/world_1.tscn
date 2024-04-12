@@ -1,19 +1,19 @@
 [gd_scene load_steps=18 format=3 uid="uid://d3rim3yjhx23r"]
 
-[ext_resource type="Texture2D" uid="uid://gkweotx3uvck" path="res://assets/raou_free_top_down_adventure/topDown_baseTiles.png" id="1_a1mts"]
-[ext_resource type="PackedScene" uid="uid://ov0kiqqyp5kd" path="res://player.tscn" id="2_1hvyn"]
-[ext_resource type="Texture2D" uid="uid://butrgqv7i3cl" path="res://assets/Modern Tiles/Interiors_free_16x16.png" id="2_xkd06"]
-[ext_resource type="Texture2D" uid="uid://llmv7ymt8ye4" path="res://assets/coin/coin1.png" id="4_6wav1"]
-[ext_resource type="Texture2D" uid="uid://cdqee56bb1ej" path="res://assets/coin/coin2.png" id="5_aeuft"]
-[ext_resource type="Texture2D" uid="uid://cx70cprv8ug64" path="res://assets/coin/coin3.png" id="6_7taus"]
-[ext_resource type="Texture2D" uid="uid://br7k322brddf1" path="res://assets/coin/coin4.png" id="7_nj158"]
-[ext_resource type="Texture2D" uid="uid://nhi2hrkvrs5u" path="res://assets/coin/coin5.png" id="8_uc0cl"]
-[ext_resource type="Texture2D" uid="uid://44fs3blc2f4c" path="res://assets/coin/coin6.png" id="9_emxv6"]
-[ext_resource type="Script" path="res://Coin.gd" id="9_ywfuk"]
-[ext_resource type="Script" path="res://Teleport.gd" id="11_svng6"]
+[ext_resource type="Texture2D" uid="uid://gkweotx3uvck" path="res://assets/raou_free_top_down_adventure/topDown_baseTiles.png" id="1_wp5wy"]
+[ext_resource type="Texture2D" uid="uid://butrgqv7i3cl" path="res://assets/Modern Tiles/Interiors_free_16x16.png" id="2_ebwky"]
+[ext_resource type="Texture2D" uid="uid://llmv7ymt8ye4" path="res://assets/coin/coin1.png" id="3_ggxm0"]
+[ext_resource type="Texture2D" uid="uid://cdqee56bb1ej" path="res://assets/coin/coin2.png" id="4_1cpn2"]
+[ext_resource type="Texture2D" uid="uid://cx70cprv8ug64" path="res://assets/coin/coin3.png" id="5_spa17"]
+[ext_resource type="Texture2D" uid="uid://br7k322brddf1" path="res://assets/coin/coin4.png" id="6_kmxix"]
+[ext_resource type="Texture2D" uid="uid://nhi2hrkvrs5u" path="res://assets/coin/coin5.png" id="7_yg0mp"]
+[ext_resource type="Texture2D" uid="uid://44fs3blc2f4c" path="res://assets/coin/coin6.png" id="8_5aexj"]
+[ext_resource type="Script" path="res://scripts/Coin.gd" id="9_jxw88"]
+[ext_resource type="PackedScene" uid="uid://ov0kiqqyp5kd" path="res://scenes/player.tscn" id="10_h0dio"]
+[ext_resource type="Script" path="res://scripts/Teleport_world.gd" id="11_fvdpm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_713ik"]
-texture = ExtResource("1_a1mts")
+texture = ExtResource("1_wp5wy")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -1856,7 +1856,7 @@ texture = ExtResource("1_a1mts")
 4:55/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2mhw"]
-texture = ExtResource("2_xkd06")
+texture = ExtResource("2_ebwky")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
@@ -5221,22 +5221,22 @@ radius = 8.06226
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_6wav1")
+"texture": ExtResource("3_ggxm0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_aeuft")
+"texture": ExtResource("4_1cpn2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_7taus")
+"texture": ExtResource("5_spa17")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_nj158")
+"texture": ExtResource("6_kmxix")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_uc0cl")
+"texture": ExtResource("7_yg0mp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_emxv6")
+"texture": ExtResource("8_5aexj")
 }],
 "loop": true,
 "name": &"default",
@@ -5270,14 +5270,14 @@ sprite_frames = SubResource("SpriteFrames_y8s7s")
 autoplay = "default"
 frame = 2
 frame_progress = 0.0497619
-script = ExtResource("9_ywfuk")
+script = ExtResource("9_jxw88")
 
-[node name="Player" parent="." instance=ExtResource("2_1hvyn")]
+[node name="Player" parent="." instance=ExtResource("10_h0dio")]
 position = Vector2(61, 540)
 metadata/_edit_group_ = true
 
 [node name="Teleport" type="Area2D" parent="."]
-script = ExtResource("11_svng6")
+script = ExtResource("11_fvdpm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport"]
 position = Vector2(160, 192)
