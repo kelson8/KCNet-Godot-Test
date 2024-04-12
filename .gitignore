@@ -3,3 +3,6 @@
 
 # Godot owl
 addons/godot_owl
+
+*.exe
+*.pck

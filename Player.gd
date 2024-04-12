@@ -22,12 +22,12 @@ var motion = Vector2()
 
 func _physics_process(delta):
 	# I tried to use what they were using in the Mega Bot project and the player doesn't move with this.
-	#set_velocity(motion)
-	#set_up_direction(UP)
+	set_velocity(motion)
+	set_up_direction(UP)
 	get_input()
 	move_and_slide()
 	
-	position = position.clamp(Vector2.ZERO, screen_size)
+	#position = position.clamp(Vector2.ZERO, screen_size)
 	#move_and_collide(motion)
 	#player_movement(delta)
 
@@ -124,3 +124,9 @@ func faster_enemies():
 func slower_enemies():
 	pass
  
+
+# Coin functions.
+func _on_coin_tree_entered():
+	print("Coin picked up!")
+	#pass # Replace with function body.
+
