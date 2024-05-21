@@ -10,10 +10,8 @@ extends AnimatedSprite2D
 func _ready():
 	pass # Replace with function body.
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 var teleport_target_location = Vector2(24,36)

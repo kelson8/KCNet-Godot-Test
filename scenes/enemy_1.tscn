@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cweql8odjqlcw"]
+
+[ext_resource type="Texture2D" uid="uid://c28nlqsgedjcw" path="res://assets/Platformer Art Complete Pack/Base pack/Enemies/flyFly1.png" id="1_ska07"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ab7kh"]
+radius = 25.0799
+
+[node name="Enemy_1" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, 1)
+texture = ExtResource("1_ska07")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4)
+shape = SubResource("CircleShape2D_ab7kh")

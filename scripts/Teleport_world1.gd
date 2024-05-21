@@ -1,9 +1,11 @@
 extends Area2D
 
-# RPG game type world.
+# RPG game type world, teleport from the sky world.
+# Sky world 2 teleport
 # Testing making a basic RPG game on this.
 
 var entered = false
+var enter_label = Label
 
 func _on_body_entered(body: PhysicsBody2D):
 	entered = true
@@ -14,5 +16,7 @@ func _on_body_exited(body: PhysicsBody2D):
 func _physics_process(delta):
 	if entered == true:
 		if Input.is_action_just_pressed("ui_accept"):
-			get_tree().change_scene_to_file("res://scenes/world_1.tscn")
+			# Switch to teleport to sky_world2
+			#get_tree().change_scene_to_file("res://scenes/world_1.tscn")
+			get_tree().change_scene_to_file("res://scenes/sky_world2.tscn")
 
