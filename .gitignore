@@ -10,7 +10,14 @@ addons/godot-git-plugin
 
 # TODO Add these as seperate download link and give credits to users.
 addons/
-assets/
+assets/*
+
+# Add sound effects and music
+!assets/sound_effects
+!assets/music
+
+
+
 scripts/scenes
 #
 
@@ -22,11 +29,18 @@ media/
 samples/
 screenshots/
 
-
 !scripts/assets
 
 # Test code
 Testing/
+
+/scripts/AudioOptions.gd
+/scripts/OptionsMenu.gd
+
+/scenes/wor3F6B.tmp
+/scenes/wor5E3E.tmp
+/scenes/wor158A.tmp
+/scenes/worC7C0.tmp
 
 # Extras from other projects
 # /CONTRIBUTING.md
@@ -38,3 +52,15 @@ Testing/
 # /itchicon.png
 # /logo.png
 other_files
+
+# Extras
+__MACOSX
+*.zip
+/plugin.cfg
+/gonote.gd
+/note_panel.tscn
+/examples
+/git_pics
+/godot_discord_webhooks
+/saved_notes
+
