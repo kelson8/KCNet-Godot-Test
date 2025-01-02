@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://7fgowa277tgg"]
 
 [ext_resource type="Texture2D" uid="uid://da13a2dk7vxde" path="res://assets/sky-background/Clouds/Clouds 1/4.png" id="1_khrsx"]
-[ext_resource type="Script" path="res://scenes/imgui_test.cs" id="1_yl4oi"]
+[ext_resource type="Script" path="res://scripts/imgui_test.cs" id="1_yl4oi"]
 [ext_resource type="PackedScene" uid="uid://b2saato7mhxka" path="res://scenes/test_tile_map.tscn" id="2_isi1k"]
 [ext_resource type="PackedScene" uid="uid://dji1tmjgsndbm" path="res://scenes/knight_2.tscn" id="3_4nxeh"]
 [ext_resource type="Script" path="res://scripts/Teleport_world1.gd" id="5_3br0h"]

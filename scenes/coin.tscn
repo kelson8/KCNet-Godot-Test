@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://c43j0ntub7s4v"]
+
+[ext_resource type="Texture2D" uid="uid://llmv7ymt8ye4" path="res://assets/coin/coin1.png" id="1_j4q47"]
+[ext_resource type="Texture2D" uid="uid://cdqee56bb1ej" path="res://assets/coin/coin2.png" id="2_m2873"]
+[ext_resource type="Texture2D" uid="uid://cx70cprv8ug64" path="res://assets/coin/coin3.png" id="3_w8ilt"]
+[ext_resource type="Texture2D" uid="uid://br7k322brddf1" path="res://assets/coin/coin4.png" id="4_tnl5y"]
+[ext_resource type="Texture2D" uid="uid://nhi2hrkvrs5u" path="res://assets/coin/coin5.png" id="5_a7q7e"]
+[ext_resource type="Texture2D" uid="uid://44fs3blc2f4c" path="res://assets/coin/coin6.png" id="6_uut7o"]
+[ext_resource type="Script" path="res://scripts/Coin1.gd" id="7_igyje"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7tqs8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pmj3r"]
+radius = 16.0312
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nvedn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j4q47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m2873")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w8ilt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tnl5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a7q7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uut7o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Coin" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_7tqs8")
+
+[node name="coinArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coinArea2D"]
+position = Vector2(12, 19)
+shape = SubResource("CircleShape2D_pmj3r")
+
+[node name="Coin" type="AnimatedSprite2D" parent="coinArea2D"]
+position = Vector2(13.0001, 18)
+scale = Vector2(2.0625, 2.0625)
+sprite_frames = SubResource("SpriteFrames_nvedn")
+autoplay = "default"
+frame_progress = 0.793921
+script = ExtResource("7_igyje")
+metadata/_edit_group_ = true
+
+[connection signal="body_entered" from="coinArea2D" to="coinArea2D/Coin" method="_on_area_2d_body_entered"]
+[connection signal="child_entered_tree" from="coinArea2D/Coin" to="coinArea2D/Coin" method="_on_child_entered_tree"]
+[connection signal="hidden" from="coinArea2D/Coin" to="coinArea2D/Coin" method="_on_hidden"]

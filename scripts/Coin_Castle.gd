@@ -1,11 +1,11 @@
 extends AnimatedSprite2D
 
+# Copied from world_1 coin.
 # https://forum.godotengine.org/t/how-to-export-variables-in-godot-4-0/14062/2
 # I'm not sure how to use exports just yet.
 #@export var Coin : AnimatedSprite2D
 
-# TODO Make it to where once the coin is picked up, 
-# it opens a locked door on the right where the mountain is
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

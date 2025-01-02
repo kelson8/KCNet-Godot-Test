@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cia7y3645msh6"]
 
 [ext_resource type="Texture2D" uid="uid://cr4cvi4npalig" path="res://assets/city/cityfirstprops/stroke2.png" id="1_32pqb"]
-[ext_resource type="Script" path="res://scenes/imgui_test.cs" id="1_bbs8p"]
+[ext_resource type="Script" path="res://scripts/imgui_test.cs" id="1_bbs8p"]
 [ext_resource type="Texture2D" uid="uid://drgkrr3pt2e6v" path="res://assets/city/house1/stoke1house0001.png" id="2_iaewd"]
 [ext_resource type="Texture2D" uid="uid://dgd1qyc8a1a1e" path="res://assets/Platformer Art Complete Pack/Base pack/Tiles/grass.png" id="3_5st7o"]
 [ext_resource type="Texture2D" uid="uid://65o67tx3cvv6" path="res://assets/city/cityfirstprops/stroke1.png" id="4_vaep4"]

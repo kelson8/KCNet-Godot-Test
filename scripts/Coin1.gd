@@ -4,8 +4,18 @@ extends AnimatedSprite2D
 # I'm not sure how to use exports just yet.
 #@export var Coin : AnimatedSprite2D
 
+# https://www.youtube.com/watch?v=tN76BJ2XyDQ
+signal key_picked_up
+var key_taken = false
+var in_door_zone = false
+#
+
 # TODO Make it to where once the coin is picked up, 
-# it opens a locked door on the right where the mountain is
+# it opens a locked door
+
+# TODO Make this to where I don't need to duplicate this code for each coin, possibly use an export?
+
+# I had to select "Autoplay on load" in the animation menu under AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +45,15 @@ func _on_area_2d_body_entered(body):
 		#print("Coin picked up")
 
 
+# TODO Make this to where it says "Door has been unlocked, you can now go to back"
 func _on_hidden():
 	pass
 	#print("Coin picked up.")
+
+
+#func _on_coin_area_2d_body_entered(body):
+	#pass # Replace with function body.
+
+
+func _on_child_entered_tree(node):
+	pass # Replace with function body.

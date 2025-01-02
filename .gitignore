@@ -7,3 +7,7 @@ addons/godot-git-plugin
 
 *.exe
 *.pck
+
+# TODO Add these as seperate download link and give credits to users.
+addons/
+assets/

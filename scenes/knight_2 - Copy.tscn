@@ -1,8 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://dji1tmjgsndbm"]
+[gd_scene load_steps=25 format=3 uid="uid://dji1tmjgsndbm"]
 
 [ext_resource type="Script" path="res://scripts/knight_2.gd" id="1_2sn3a"]
 [ext_resource type="Texture2D" uid="uid://x7hnmfaktdw5" path="res://assets/knight-character2/Sprite_without_outline/WALK.png" id="1_gwlls"]
-[ext_resource type="Script" path="res://scripts/camera.gd" id="2_04ghn"]
 [ext_resource type="Texture2D" uid="uid://b12esnaxc0wno" path="res://assets/knight-character2/Sprite_without_outline/IDLE.png" id="2_7m6q3"]
 [ext_resource type="Texture2D" uid="uid://cvqkofhsmsolh" path="res://assets/knight-character2/Sprite_without_outline/ATTACK.png" id="2_rhj77"]
 
@@ -155,15 +154,6 @@ size = Vector2(37, 52)
 
 [node name="knight2" type="CharacterBody2D"]
 script = ExtResource("1_2sn3a")
-
-[node name="camera" type="Camera2D" parent="."]
-limit_left = -10
-limit_top = 0
-limit_right = 814
-limit_bottom = 669
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-script = ExtResource("2_04ghn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(19, 19.5)
