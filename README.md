@@ -8,6 +8,7 @@ In this repo, I am testing a basic game in Godot using GDScript. There will be s
 
 ### Credits
 * Credit to Luke.RUSTLTD for the coin sounds: https://opengameart.org/content/10-8bit-coin-sounds
-* Credit to MintoDog for the sky_blue_street_bpm and sky_blue_street_climax music files: https://opengameart.org/content/sky-blue-street
+* Credit to MintoDog for the sky_blue_street_bpm and sky_blue_street_climax music files (sky_blue_street_climax_bpm180.ogg In use on world_1_interior): https://opengameart.org/content/sky-blue-street
 * Credit to Frenchyboy for the mysyeriobossfight.wav (In use for my Main Menu in the future): https://opengameart.org/content/mysterious-boss-fight
+* Credit to Spring Spring for the powerup sound effects: https://opengameart.org/content/power-up-sound-effects
 * Credit to Godot for the amazing game engine: https://godotengine.org/
