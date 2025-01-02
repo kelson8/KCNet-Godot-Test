@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3rim3yjhx23r"]
+[gd_scene load_steps=13 format=3 uid="uid://d3rim3yjhx23r"]
 
 [ext_resource type="Script" path="res://scripts/imgui_test.cs" id="1_g3ak7"]
 [ext_resource type="Texture2D" uid="uid://gkweotx3uvck" path="res://assets/raou_free_top_down_adventure/topDown_baseTiles.png" id="1_wp5wy"]
 [ext_resource type="Texture2D" uid="uid://butrgqv7i3cl" path="res://assets/Modern Tiles/Interiors_free_16x16.png" id="2_ebwky"]
 [ext_resource type="PackedScene" uid="uid://c43j0ntub7s4v" path="res://scenes/coin.tscn" id="4_x826r"]
 [ext_resource type="PackedScene" uid="uid://hnkan53o3s77" path="res://scenes/enter_label.tscn" id="7_lgb2k"]
+[ext_resource type="AudioStream" uid="uid://bh77ny0k3o25e" path="res://assets/music/dreams.wav" id="8_cdbee"]
 [ext_resource type="PackedScene" uid="uid://dji1tmjgsndbm" path="res://scenes/knight_2.tscn" id="10_37y0n"]
 [ext_resource type="Script" path="res://scripts/Teleport_world.gd" id="11_fvdpm"]
 
@@ -1780,12 +1781,16 @@ script = ExtResource("11_fvdpm")
 position = Vector2(152, 205)
 shape = SubResource("CircleShape2D_gm2hk")
 
-[node name="Label" parent="Teleport" instance=ExtResource("7_lgb2k")]
+[node name="EnterLabel" parent="Teleport" instance=ExtResource("7_lgb2k")]
 visible = false
 offset_left = 178.0
 offset_top = 188.0
 offset_right = 294.0
 offset_bottom = 211.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_cdbee")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]
 [connection signal="body_exited" from="Teleport" to="Teleport" method="_on_body_exited"]

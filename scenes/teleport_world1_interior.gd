@@ -14,34 +14,39 @@ var entered = false
 # TODO Fix this door lock system to work, unlock door when coin is picked up.
 var doorLocked = false
 
+# This works for showing/hiding the exit label.
+@onready var exitLabel = $ExitLabel
+
 # TODO Set this to lock/unlock the door with the coin.
 func _on_body_entered(body: PhysicsBody2D):
 	if doorLocked:
 		pass
 	else:
 		entered = true
-		#enterLabel.show()
 		
-		# This prints but doesn't show the label.
-		print("Entered")
+		# Show the label "Exit building?" if close
+		if not exitLabel.is_visible():
+			exitLabel.show()
+		
+		# # Debug text
+		#print("Entered")
 
 func _on_body_exited(body: PhysicsBody2D):
 	if doorLocked:
 		pass
 	else:
 		entered = false
-		print("Exited")
-		#enterLabel.hide()
+		
+		# Hide the label "Exit building?" if moved away
+		if exitLabel.is_visible():
+			exitLabel.hide()
+
+		# Debug text
+		# print("Exited")
 	
 
 func _physics_process(delta):
 	if entered == true:
-		#enterLabel.show()
-		#enterLabel.hide
-		#enterLabel.hidden = false
-		
 		if Input.is_action_just_pressed("ui_accept"):
 			get_tree().change_scene_to_file("res://scenes/world_1.tscn")
-	#else:
-		#enterLabel.hidden = true
-			
+		

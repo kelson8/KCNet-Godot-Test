@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dl47d7c86c2a4"]
+[gd_scene load_steps=23 format=3 uid="uid://dl47d7c86c2a4"]
 
 [ext_resource type="Texture2D" uid="uid://c3xlp2yyemd3m" path="res://assets/Terrain (16x16).png" id="1_h4thu"]
 [ext_resource type="Texture2D" uid="uid://d2mgfw7jk62ru" path="res://assets/Pixel_Adventure_1/Background/Blue.png" id="2_o80mx"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://dp32kvy3ol8u7" path="res://assets/Pixel_Adventure_1/Background/Green.png" id="7_hweco"]
 [ext_resource type="Script" path="res://scenes/teleport_world1_interior.gd" id="9_233at"]
 [ext_resource type="PackedScene" uid="uid://c43j0ntub7s4v" path="res://scenes/coin.tscn" id="10_vvuxg"]
+[ext_resource type="AudioStream" uid="uid://1xy5s6edcrch" path="res://assets/music/sky_blue_street_climax_bpm180.ogg" id="11_vehm1"]
+[ext_resource type="Script" path="res://scenes/exit_label.gd" id="11_w5jws"]
+[ext_resource type="PackedScene" uid="uid://dncka8qduvu3a" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="12_vjngw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifqwh"]
 texture = ExtResource("1_h4thu")
@@ -6922,6 +6925,11 @@ size = Vector2(64, 96)
 
 [node name="World1_Interior" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 2
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_vjngw")]
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_g5i72")
 format = 2
@@ -6942,8 +6950,23 @@ script = ExtResource("9_233at")
 position = Vector2(38, 192)
 shape = SubResource("RectangleShape2D_gaadn")
 
+[node name="ExitLabel" type="Label" parent="Teleport"]
+visible = false
+offset_left = 78.0
+offset_top = 199.0
+offset_right = 182.0
+offset_bottom = 222.0
+text = "Exit Building?"
+script = ExtResource("11_w5jws")
+
 [node name="Coin" parent="." instance=ExtResource("10_vvuxg")]
 position = Vector2(529, 252)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_vehm1")
+volume_db = -5.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="Teleport" to="Teleport" method="_on_body_entered"]
 [connection signal="body_exited" from="Teleport" to="Teleport" method="_on_body_exited"]

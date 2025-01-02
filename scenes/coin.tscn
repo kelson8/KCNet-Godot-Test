@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c43j0ntub7s4v"]
+[gd_scene load_steps=12 format=3 uid="uid://c43j0ntub7s4v"]
 
 [ext_resource type="Texture2D" uid="uid://llmv7ymt8ye4" path="res://assets/coin/coin1.png" id="1_j4q47"]
 [ext_resource type="Texture2D" uid="uid://cdqee56bb1ej" path="res://assets/coin/coin2.png" id="2_m2873"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://nhi2hrkvrs5u" path="res://assets/coin/coin5.png" id="5_a7q7e"]
 [ext_resource type="Texture2D" uid="uid://44fs3blc2f4c" path="res://assets/coin/coin6.png" id="6_uut7o"]
 [ext_resource type="Script" path="res://scripts/Coin1.gd" id="7_igyje"]
+[ext_resource type="AudioStream" uid="uid://bylshkqo32nnb" path="res://assets/sound_effects/coin_sounds/coin1.wav" id="8_qvpqk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7tqs8"]
 
@@ -56,6 +57,10 @@ autoplay = "default"
 frame_progress = 0.793921
 script = ExtResource("7_igyje")
 metadata/_edit_group_ = true
+
+[node name="PickupSfx" type="AudioStreamPlayer2D" parent="coinArea2D/Coin"]
+stream = ExtResource("8_qvpqk")
+volume_db = -5.0
 
 [connection signal="body_entered" from="coinArea2D" to="coinArea2D/Coin" method="_on_area_2d_body_entered"]
 [connection signal="child_entered_tree" from="coinArea2D/Coin" to="coinArea2D/Coin" method="_on_child_entered_tree"]

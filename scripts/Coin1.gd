@@ -33,6 +33,7 @@ func _on_area_2d_body_entered(body):
 	#var Coin = $Coin
 	hide()
 	
+	
 	# https://www.reddit.com/r/godot/comments/v6ou2d/how_do_i_move_or_teleport_my_player_to_another/
 	# This teleport the player when the coin is picked up.
 	# This doesn't seem to react to coords though. It always puts me in the same spot.
@@ -46,8 +47,11 @@ func _on_area_2d_body_entered(body):
 
 
 # TODO Make this to where it says "Door has been unlocked, you can now go to back"
+
+@onready var pickup_sfx = $PickupSfx
 func _on_hidden():
-	pass
+	# https://www.youtube.com/watch?v=ungRKilH2mk
+	pickup_sfx.play()
 	#print("Coin picked up.")
 
 
