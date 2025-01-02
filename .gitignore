@@ -11,3 +11,30 @@ addons/godot-git-plugin
 # TODO Add these as seperate download link and give credits to users.
 addons/
 assets/
+scripts/scenes
+#
+
+demo/
+doc/
+documentation/
+images/
+media/
+samples/
+screenshots/
+
+
+!scripts/assets
+
+# Test code
+Testing/
+
+# Extras from other projects
+# /CONTRIBUTING.md
+# /COPYRIGHT.txt
+# /datatable.res
+# /default_bus_layout.tres
+# /Demonstration.tscn
+# /flower02.png.import
+# /itchicon.png
+# /logo.png
+other_files
