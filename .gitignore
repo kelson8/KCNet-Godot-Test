@@ -64,3 +64,6 @@ __MACOSX
 /godot_discord_webhooks
 /saved_notes
 
+# DLL's and stuff for Smooth Motion C#
+/data_Smooth Motion_windows_x86_64
+

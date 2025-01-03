@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8c4qdxewut75"]
+
+[ext_resource type="Texture2D" uid="uid://c28nlqsgedjcw" path="res://assets/Platformer Art Complete Pack/Base pack/Enemies/flyFly1.png" id="1_0bdig"]
+[ext_resource type="Script" path="res://scripts/enemy_fly_1.gd" id="1_kuvfm"]
+[ext_resource type="Texture2D" uid="uid://cqxubgskrpny5" path="res://assets/Platformer Art Complete Pack/Base pack/Enemies/flyFly2.png" id="2_i85m0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4mxmb"]
+radius = 22.0907
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m8wq"]
+atlas = ExtResource("1_0bdig")
+region = Rect2(0, 0, 72, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2vda"]
+atlas = ExtResource("2_i85m0")
+region = Rect2(0, 0, 75, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_80nrq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m8wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2vda")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Fly1" type="CharacterBody2D"]
+script = ExtResource("1_kuvfm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 5)
+shape = SubResource("CircleShape2D_4mxmb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 1)
+sprite_frames = SubResource("SpriteFrames_80nrq")
+frame_progress = 0.669627

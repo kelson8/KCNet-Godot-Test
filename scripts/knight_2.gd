@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+# New
+class_name knight2
+@export var knight2 : CharacterBody2D
+
 const max_speed = 400
 var deceleration = 1000
 const accel = 1000
@@ -14,6 +18,8 @@ var motion = Vector2()
 # New
 const gravity = 15
 const jump_speed = -300
+
+
 #
 
 # I got the camera to work by adding it to the knight2 character instead of the worlds.
@@ -85,11 +91,56 @@ var test : bool :
 # This seems to be used as a boundry for the game window.
 var screen_size # Size of the game window.
 
+#func set_position(x, y):
+	#$"/root/global".player.set_position(22, 22)
+
 func _ready():
 	screen_size = get_viewport().size
 	
 	# New
 	var camera = get_node("Camera")  # Get the Camera2D node
+	
+	# New for global
+	#$"/root/global".register_player(self)
+	
+	# Pausing the game
+	#process_mode = Node.PROCESS_MODE_PAUSABLE
+
+# https://forum.godotengine.org/t/issue-with-game-pausing-while-in-menu/71749
+func _resume():
+	get_tree().paused = false
+	#Engine.time_scale = 1
+	
+func _pause():
+	get_tree().paused = true
+	# https://forum.godotengine.org/t/un-pause-with-an-input-event/44136/4
+	set_process_input(true)
+	#Engine.time_scale = 0
+
+# TODO Fix this to not break the game.
+#func _on_pause_button_pressed():
+	## https://www.reddit.com/r/godot/comments/b7jd95/help_making_a_pause_menu_open_and_close_with/
+	#if Input.is_action_just_pressed("pause_button"):
+		## TODO Get this to open the main menu with ESCAPE key.
+		#if get_tree().paused == false:
+			##get_tree().paused = true
+			#_pause()
+			#get_tree().change_scene_to_file("res://scenes/menus/main_menu/main_menu.tscn")
+			##pass
+		#else:
+			#get_tree().paused = false
+			#_resume()
+			# TODO Change to previous scene.
+			#pass
+			
+			#
+	#if get_tree().paused == false:
+		#get_tree().paused = true
+	#else:
+		#get_tree().paused = false
+
+#func _input(event):
+	#_on_pause_button_pressed()
 
 #func _physics_process(delta):
 	#set_velocity(motion)
@@ -99,16 +150,51 @@ func _ready():
 	##player_movement(delta)
 	#move_and_slide()
 	
+# TODO Fix this to show up the pause menu.
+func toggle_pause():
+	if get_tree().is_paused():
+		get_tree().set_pause(false)
+	else:
+		get_tree().set_pause(true) 
+		# TODO Show pause menu
+		
+	
+# Print out the current mouse position X and Y
+# TODO Set a timer or something for this and log to file when button is pressed.
+# TODO Add button to ImGui menu for logging.
+var mouse_pos = false
+
+
 func _physics_process(delta):
+	
+
+	
 	set_velocity(motion)
 	set_up_direction(UP)
 	#get_input()
 	#player_movement(delta)
 	# This stops the player movement but doesn't disable the animation, where is that defined?
 	
+	# Test
+	# TODO Fix this to work.
+	#_on_pause_button_pressed()
+	#if Input.is_action_just_pressed("pause_button"):
+		#toggle_pause()
+		#get_viewport().set_input_as_handled()
+	#
+	
+	# Add player position
+	var player_position = position
+	
 	if can_move:
 		get_input(delta)
 		move_and_slide()
+		
+		if mouse_pos:
+			# https://www.youtube.com/watch?v=ilsAHjgRdQc
+			var mouse_pos = get_viewport().get_mouse_position()
+			print(mouse_pos)
+		
 	
 
 # https://www.youtube.com/watch?v=qIL3wtSATQ4&t=162s
@@ -198,3 +284,14 @@ func fall():
 		motion.y = 0
 	
 	motion.y += gravity
+
+
+# https://forum.godotengine.org/t/problem-getting-player-position-from-another-scene/54745
+# This allows me to use something like this to set the player position:
+
+# Store the position as a variable: var center_of_map = Vector2(500.2, 300.2)
+# Set the player position: Global.player.global_position = center_of_map
+func _on_tree_entered():
+	Global.player = self
+	# Not in use.
+	#Global.player_position = position

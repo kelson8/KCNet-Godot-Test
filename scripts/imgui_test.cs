@@ -17,7 +17,7 @@ public partial class imgui_test : Node2D
 
     bool showWindow = false;
     // These need the exact names from the .tscn scene files
-    private string[] comboBoxItems = {"castle", "castle_1", "city_1", "sky_world1", "sky_world2", "world_1", "world_1_interior"};
+    private string[] comboBoxItems = {"castle", "castle_1", "city_1", "sky_world1", "sky_world2", "world_1", "world_1_interior", "main_menu"};
     string currentItem = null;
 
     // I can loop through these like this and using a for loop like for the comboBoxItems

@@ -15,7 +15,7 @@ func _ready():
 func _process(_delta):
 	pass
 
-var teleport_target_location = Vector2(24,36)
+var teleport_target_location = Vector2(384,36)
 
 # When the coin is picked up, hide it
 # https://www.reddit.com/r/godot/comments/8psv1d/how_can_i_check_if_a_object_is_still_standing_on/
