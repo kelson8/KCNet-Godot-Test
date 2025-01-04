@@ -16,6 +16,10 @@ assets/*
 !assets/sound_effects
 !assets/music
 
+# Add knight2, I forgot I had this in the gitignore
+!assets/knight-character
+!assets/knight-character2
+
 
 
 scripts/scenes
