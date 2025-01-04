@@ -63,7 +63,16 @@ __MACOSX
 /git_pics
 /godot_discord_webhooks
 /saved_notes
+/TCPMaid.sln
+/.vs
+
+# Android stuff
+*.apk
+*.idsig
+
+# IOS stuff
+*.ipa
 
 # DLL's and stuff for Smooth Motion C#
 /data_Smooth Motion_windows_x86_64
-
+*.dll
