@@ -1,11 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8c4qdxewut75"]
+[gd_scene load_steps=9 format=3 uid="uid://c8c4qdxewut75"]
 
 [ext_resource type="Texture2D" uid="uid://c28nlqsgedjcw" path="res://assets/Platformer Art Complete Pack/Base pack/Enemies/flyFly1.png" id="1_0bdig"]
 [ext_resource type="Script" path="res://scripts/enemy_fly_1.gd" id="1_kuvfm"]
 [ext_resource type="Texture2D" uid="uid://cqxubgskrpny5" path="res://assets/Platformer Art Complete Pack/Base pack/Enemies/flyFly2.png" id="2_i85m0"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4mxmb"]
-radius = 22.0907
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7m8wq"]
 atlas = ExtResource("1_0bdig")
@@ -29,14 +26,33 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4mxmb"]
+radius = 165.012
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_inpks"]
+radius = 37.0135
+
 [node name="Fly1" type="CharacterBody2D"]
 script = ExtResource("1_kuvfm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 5)
-shape = SubResource("CircleShape2D_4mxmb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, 1)
 sprite_frames = SubResource("SpriteFrames_80nrq")
 frame_progress = 0.669627
+offset = Vector2(0, -6)
+
+[node name="detection_area" type="Area2D" parent="."]
+position = Vector2(-2, -1)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+visible = false
+position = Vector2(6, 2)
+shape = SubResource("CircleShape2D_4mxmb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_inpks")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

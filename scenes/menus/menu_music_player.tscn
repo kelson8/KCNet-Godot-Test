@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://brgfqbfpotjld"]
+
+[ext_resource type="AudioStream" uid="uid://dk0kfklp6pvur" path="res://assets/music/dreams.ogg" id="1_ope8p"]
+
+[node name="MenuMusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_ope8p")
+autoplay = true
+parameters/looping = true

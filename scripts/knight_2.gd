@@ -1,5 +1,30 @@
 extends CharacterBody2D
 
+# Zooming (Not in use I don't think):
+# https://www.youtube.com/watch?v=qIL3wtSATQ4&t=162s
+# https://www.youtube.com/watch?v=uU-v20-mWNY
+
+# TODO Come up with a game name for this, for now it's called KCNet-Godot-Test
+# Possible ideas: 
+# KelsonCraft Game, KCNet Game Demo, KCNet RPG Test, KCNet RPG Demo
+
+# List of GUI items to add:
+# TODO Implement game pause menu and main menu. -- Partially complete
+
+# List of items to do for knight2 and fly enemy:
+# TODO Implement character health, basic rpg leveling up system.
+# TODO Implement character attacks, character animations for walking up/down. 
+
+# Added character rotate left/right depending on which direction you are walking.
+
+# I partially fixed the code for the fly, so it can now come after the player.
+# Although I don't know how to make it stop chasing the player.
+# I still need to implement the basic health system and attacking system.
+
+# TODO Implement enemy movement and health, possibly make fly shoot lasers or something at
+# the player, make it charge at the player and kill them if they get close.
+
+
 # New
 class_name knight2
 @export var knight2 : CharacterBody2D
@@ -9,6 +34,9 @@ var deceleration = 1000
 const accel = 1000
 const friction = 600
 var speed = 250
+
+# New gravity test, oops I already had this defined.
+#const gravity = 200.0
 
 var input = Vector2.ZERO
 
@@ -166,9 +194,6 @@ var mouse_pos = false
 
 
 func _physics_process(delta):
-	
-
-	
 	set_velocity(motion)
 	set_up_direction(UP)
 	#get_input()
@@ -189,47 +214,20 @@ func _physics_process(delta):
 	if can_move:
 		get_input(delta)
 		move_and_slide()
-		
+
 		if mouse_pos:
 			# https://www.youtube.com/watch?v=ilsAHjgRdQc
 			var mouse_pos = get_viewport().get_mouse_position()
 			print(mouse_pos)
-		
-	
-
-# https://www.youtube.com/watch?v=qIL3wtSATQ4&t=162s
-
-# This just crashes it.
-# Camera zooming
-#func _input(event: InputEvent) -> void:
-	#if event is InputEventMouseButton:
-		#if event.is_pressed():
-			#if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-				#if camera.zoom > zoom_minimum:
-					#camera.zoom -= zoom_speed
-					#pass
-			#if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-				#if camera.zoom < zoom_maximum:
-					#camera.zoom += zoom_speed
-					#pass
-
-# Test
-# https://www.youtube.com/watch?v=uU-v20-mWNY
-# This doesn't work.
-#func _input(event):
-	#if event.is_action("mouse_wheel_down"):
-		#if zoom_maximum > 1:
-			#mouse_position = get_viewport.get_mouse_position()
-#
 
 
 func get_input(delta):
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	
+
 	# Test
 	# https://www.youtube.com/watch?v=CNjLR3ScMtU
 	#velocity = velocity.lerp(input_direction * speed, 0.05)
-	
+
 	# https://www.reddit.com/r/godot/comments/wnvnzs/top_down_with_smooth_movement/
 	#if input_direction != Vector2.ZERO:
 		#var target_velocity = speed * input_direction
@@ -240,19 +238,31 @@ func get_input(delta):
 	
 	# Original code
 	velocity = input_direction * speed
-	
-	# This is one way to get the animations while moving around, but it's not perfect.
-	#if input_direction == Input.get_vector("move_left", "move_right"):
-	# This helped me with getting the player to only have the walk animation when walking left and right for now.
-	# Once I get more animations setup and figure out how to rotate the character I'll fix this.
+
 	# https://www.reddit.com/r/godot/comments/18hpggm/2_directional_movement/
+			
+	# I finally figured out how to make the player change directions when moving
+	# I took the same concept I learned from the enemy and adapted it.
+	var player_position = position
+	if Input.is_action_pressed("move_left"):
+		$AnimatedSprite2D.flip_h = true
+		
+	if Input.is_action_pressed("move_right"):
+		$AnimatedSprite2D.flip_h = false
+			
+
+		
+	
 	if Input.get_axis("move_left", "move_right"):
 		$AnimatedSprite2D.play("walking")
 	else:
 		# This fixes the idle animation
 		$AnimatedSprite2D.play("idle")
-		#$AnimatedSprite2D.stop()
 		
+
+# Add test for gravity, this would be useful on a platformer mario like game.
+# This test game will be some type of RPG game though.
+var gravity_test = true
 func player_movement(delta):
 	#input = get_input()
 	input = get_input(delta)
@@ -274,9 +284,19 @@ func player_movement(delta):
 		#position += velocity * delta
 		position = position.clamp(Vector2.ZERO, screen_size)
 		#velocity = velocity.bounce(collision_info.get_normal())
-	
-		move_and_slide()
 
+		# Test for gravity
+		# https://docs.godotengine.org/en/stable/tutorials/physics/kinematic_character_2d.html
+		# This doesn't add gravity but seems to fix the movement somewhat.
+		if gravity_test:
+			velocity.y += delta * gravity
+			move_and_collide(velocity)
+		else:
+			# Normal, without gravity test.
+			move_and_slide()
+
+# This isn't in use yet
+# TODO Fix this to work.
 func fall():
 	if is_on_ceiling():
 		motion.y = 0

@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhkhm7tfnh8rv"]
+
+[ext_resource type="Script" path="res://scripts/menus/menu_test.gd" id="1_6bxhd"]
+[ext_resource type="PackedScene" uid="uid://brgfqbfpotjld" path="res://scenes/menus/menu_music_player.tscn" id="2_tywww"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6bxhd")
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+offset_right = 70.0
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+text = "Start"
+
+[node name="TestButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Test"
+
+[node name="OptionsButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 458.0
+offset_right = 578.0
+offset_bottom = 507.0
+text = "Welcome to the KCNet Test Game mostly written in GDScript using Godot
+There isn't very much on here yet, but I have the main menu working now.
+"
+
+[node name="MenuMusicPlayer" parent="." instance=ExtResource("2_tywww")]
+
+[connection signal="pressed" from="MenuContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuContainer/TestButton" to="." method="_on_test_button_pressed"]
+[connection signal="pressed" from="MenuContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MenuContainer/QuitButton" to="." method="_on_quit_button_pressed"]
